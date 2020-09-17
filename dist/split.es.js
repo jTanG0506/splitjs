@@ -304,11 +304,13 @@ var Split = function (idsOption, options) {
         // If within snapOffset of min or max, set offset to min or max.
         // snapOffset buffers a.minSize and b.minSize, so logic is opposite for both.
         // Include the appropriate gutter sizes to prevent overflows.
-        if (offset <= a.minSize + snapOffsets[this.a] + this[aGutterSize]) {
+        if (offset <= a.minSize + a.snapOffset + this[aGutterSize]) {
             offset = a.minSize + this[aGutterSize];
         } else if (
-            snapOffsets[this.b] &&
-            offset >= this.size - (b.minSize + snapOffsets[this.b] + this[bGutterSize])
+            b.snapOffset &&
+            offset >=
+                this.size -
+                    (b.minSize + snapOffsets[this.b] + this[bGutterSize])
         ) {
             offset = this.size - (b.minSize + this[bGutterSize]);
         }
@@ -586,6 +588,7 @@ var Split = function (idsOption, options) {
             element: elementOrSelector(id),
             size: sizes[i],
             minSize: minSizes[i],
+            snapOffset: snapOffsets[i],
             i: i,
         };
 
