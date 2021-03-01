@@ -6,7 +6,7 @@
     "minified:main": "dist/split.min.js",
     "module": "dist/split.es.js",
     "types": "index.d.ts",
-    "repository": "https://github.com/nathancahill/split",
+    "repository": "https://github.com/jTanG0506/splitjs",
     "keywords": [
         "css",
         "split",
